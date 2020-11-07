@@ -7,3 +7,10 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: venueservice
+          uri: lb://venue
+          predicates:
+            - Path=/venue/**
+

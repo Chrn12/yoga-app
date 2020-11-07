@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yoga-coach" />
+        <module name="yoga-getway" />
+        <module name="yoga-student" />
+        <module name="utils" />
+        <module name="service-parent" />
+        <module name="yoga-common" />
+        <module name="web-utils" />
+        <module name="yoga-venue" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="untitled" target="1.5" />
+      <module name="util" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

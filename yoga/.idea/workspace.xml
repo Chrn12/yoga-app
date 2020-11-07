@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8ab72eb9-9c5d-46f0-b1f7-0b15a21a79cd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven" />
+        <option name="userSettingsFile" value="D:\maven\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jwdaPSRrNAbzWpHTkiX5js5j2B" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/yoga-venue/src/main/resources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\yoga\yoga-venue\src\main\resources" />
+      <recent name="D:\code\yoga\yoga-common\web-utils\src\main\java\com\woniu" />
+      <recent name="D:\code\yoga\yoga-getway\src\main\resources" />
+      <recent name="D:\code\yoga\yoga-common\utils\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.VenueStart">
+    <configuration name="GetwayStart" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="yoga-getway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.woniu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.woniu.GetwayStart" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VenueStart" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="yoga-venue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.woniu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.woniu.VenueStart" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.VenueStart" />
+        <item itemvalue="Spring Boot.GetwayStart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ab72eb9-9c5d-46f0-b1f7-0b15a21a79cd" name="Default Changelist" comment="" />
+      <created>1604719150061</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604719150061</updated>
+      <workItem from="1604719151584" duration="5968000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="466" y="195" key="FileChooserDialogImpl" timestamp="1604720869853">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="466" y="195" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1604720869853" />
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom" timestamp="1604729074448">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1604729074448" />
+    <state width="1326" height="172" key="GridCell.Tab.0.center" timestamp="1604729074448">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1604729074448" />
+    <state width="1326" height="172" key="GridCell.Tab.0.left" timestamp="1604729074448">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1604729074448" />
+    <state width="1326" height="172" key="GridCell.Tab.0.right" timestamp="1604729074448">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1604729074448" />
+    <state width="1326" height="172" key="GridCell.Tab.1.bottom" timestamp="1604729074449">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.1.bottom/0.0.1368.872@0.0.1368.872" timestamp="1604729074449" />
+    <state width="1326" height="172" key="GridCell.Tab.1.center" timestamp="1604729074448">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.1.center/0.0.1368.872@0.0.1368.872" timestamp="1604729074448" />
+    <state width="1326" height="172" key="GridCell.Tab.1.left" timestamp="1604729074448">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.1.left/0.0.1368.872@0.0.1368.872" timestamp="1604729074448" />
+    <state width="1326" height="172" key="GridCell.Tab.1.right" timestamp="1604729074449">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="172" key="GridCell.Tab.1.right/0.0.1368.872@0.0.1368.872" timestamp="1604729074449" />
+    <state x="188" y="81" key="SettingsEditor" timestamp="1604720996758">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="188" y="81" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604720996758" />
+    <state x="90" y="86" width="1266" height="604" key="new project wizard" timestamp="1604723473610">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="90" y="86" width="1266" height="604" key="new project wizard/0.0.1368.872@0.0.1368.872" timestamp="1604723473610" />
+  </component>
+</project>

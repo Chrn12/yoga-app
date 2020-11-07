@@ -13,4 +13,8 @@ spring:
           uri: lb://venue
           predicates:
             - Path=/venue/**
+        - id: coachService
+          uri: lb://coachService
+          predicates:
+            - Path=/coach/**
 

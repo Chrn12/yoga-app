@@ -9,4 +9,7 @@ spring:
         server-addr: localhost:8848
     gateway:
       routes:
-        - id:
+        - id: coachService
+          uri: lb://coachService
+          predicates:
+            - Path=/test/**

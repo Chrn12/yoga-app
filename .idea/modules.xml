@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/yoga.iml" filepath="$PROJECT_DIR$/.idea/yoga.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/service-parent/service-parent.iml" filepath="$PROJECT_DIR$/yoga/service-parent/service-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga-common/utils/utils.iml" filepath="$PROJECT_DIR$/yoga/yoga-common/utils/utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga-common/web-utils/web-utils.iml" filepath="$PROJECT_DIR$/yoga/yoga-common/web-utils/web-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga.iml" filepath="$PROJECT_DIR$/yoga/yoga.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga-coach/yoga-coach.iml" filepath="$PROJECT_DIR$/yoga/yoga-coach/yoga-coach.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga-common/yoga-common.iml" filepath="$PROJECT_DIR$/yoga/yoga-common/yoga-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga-getway/yoga-getway.iml" filepath="$PROJECT_DIR$/yoga/yoga-getway/yoga-getway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga-student/yoga-student.iml" filepath="$PROJECT_DIR$/yoga/yoga-student/yoga-student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yoga/yoga-venue/yoga-venue.iml" filepath="$PROJECT_DIR$/yoga/yoga-venue/yoga-venue.iml" />
     </modules>
   </component>
 </project>

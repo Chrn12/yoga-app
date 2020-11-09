@@ -1,11 +1,14 @@
 package com.woniu.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.woniu.entity.TStudentDto;
+import com.woniu.entity.TStudentParam;
 import com.woniu.mapper.TStudentMapper;
 import com.woniu.service.TStudentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.woniu.utils.JwtUtil;
 import com.woniu.yoga.domain.TStudent;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,7 +26,9 @@ public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> i
     @Resource
     private TStudentMapper tStudentMapper;
     @Override
-    public TStudent getLogin(TStudent tStudent) throws Exception {
+    public TStudentDto getLogin(TStudentParam tStudentParam) throws Exception {
+        TStudent tStudent = new TStudent();
+        BeanUtils.copyProperties(tStudentParam,tStudent);
         TStudent student = null;
         QueryWrapper<TStudent> wrapper = new QueryWrapper<>();
         if(tStudent.getTStudentMail() != null){
@@ -35,7 +40,9 @@ public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> i
             wrapper.eq("t_student_password",tStudent.getTStudentPassword());
             student = tStudentMapper.selectOne(wrapper);
         }
-        JwtUtil.createToken(student,3);
-        return student;
+        String token = JwtUtil.createToken(student, 3);
+        TStudentDto tStudentDto = new TStudentDto();
+        BeanUtils.copyProperties(student,tStudentDto);
+        return tStudentDto;
     }
 }

@@ -1,6 +1,8 @@
 package com.woniu.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.woniu.entity.TStudentDto;
+import com.woniu.entity.TStudentParam;
 import com.woniu.yoga.domain.TStudent;
 
 /**
@@ -12,5 +14,5 @@ import com.woniu.yoga.domain.TStudent;
  * @since 2020-11-09
  */
 public interface TStudentService extends IService<TStudent> {
-    public TStudent getLogin(TStudent tStudent)throws Exception;
+    public TStudentDto getLogin(TStudentParam tStudentParam)throws Exception;
 }

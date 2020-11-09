@@ -1,6 +1,8 @@
 package com.woniu.controller;
 
 
+import com.woniu.entity.TStudentDto;
+import com.woniu.entity.TStudentParam;
 import com.woniu.myexception.MyException;
 import com.woniu.service.TStudentService;
 import com.woniu.utils.JsonResult;
@@ -27,11 +29,12 @@ public class TStudentController {
     @Resource
     private TStudentService tStudentService;
     @GetMapping("login")
-    public JsonResult login(TStudent tStudent) throws Exception{
-        if(tStudent.getTStudentMail() != null || tStudent.getTStudentTel() != null){
-            if(tStudent.getTStudentPassword() == null){
+    public JsonResult login(TStudentParam tStudentParam) throws Exception{
+        if(tStudentParam.getTStudentMail() != null || tStudentParam.getTStudentTel() != null){
+            if(tStudentParam.getTStudentPassword() == null){
                 throw new MyException("404","请输入密码");
             }else {
+                TStudentDto studentDto = tStudentService.getLogin(tStudentParam);
 
             }
         }else {

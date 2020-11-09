@@ -8,7 +8,8 @@ import com.woniu.service.TStudentService;
 import com.woniu.utils.EmailUtil;
 import com.woniu.utils.JsonResult;
 import com.woniu.utils.JwtUtil;
-import com.woniu.yoga.domain.TStudent;
+
+import io.jsonwebtoken.Claims;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -78,5 +79,12 @@ public class TStudentController {
         return new JsonResult();
     }
 
+    //个人中心
+    @GetMapping("userCenter")
+    public JsonResult userCenter(String token) throws Exception{
+        Claims claims = JwtUtil.parseToken(token);
+        //claims.get()
+        return new JsonResult();
+    }
 }
 

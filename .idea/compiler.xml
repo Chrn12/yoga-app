@@ -12,21 +12,21 @@
         <module name="yoga-student" />
         <module name="utils" />
         <module name="service-parent" />
-        <module name="yoga-common" />
-        <module name="web-utils" />
         <module name="yoga-venue" />
+        <module name="web-utils" />
+        <module name="yoga-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="service-parent" target="1.5" />
-      <module name="utils" target="1.5" />
-      <module name="web-utils" target="1.5" />
-      <module name="yoga" target="1.5" />
+      <module name="service-parent" target="1.8" />
+      <module name="utils" target="1.8" />
+      <module name="web-utils" target="1.8" />
+      <module name="yoga" target="1.8" />
       <module name="yoga-coach" target="8" />
-      <module name="yoga-common" target="1.5" />
-      <module name="yoga-getway" target="1.5" />
-      <module name="yoga-student" target="1.5" />
-      <module name="yoga-venue" target="1.5" />
+      <module name="yoga-common" target="1.8" />
+      <module name="yoga-getway" target="1.8" />
+      <module name="yoga-student" target="1.8" />
+      <module name="yoga-venue" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

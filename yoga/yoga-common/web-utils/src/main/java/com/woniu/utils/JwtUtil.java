@@ -46,7 +46,7 @@ public class JwtUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        String token = createToken(new TStudent(), 1);
-        System.out.println(token);
+        Claims claims = parseToken("eyJhbGciOiJIUzUxMiJ9.eyJ0U3R1ZGVudElkIjoxLCJ0U3R1ZGVudFN0YXR1cyI6MCwidFN0dWRlbnRQYXNzd29yZCI6IjEyMzQ1NiIsInRTdHVkZW50Q3JlYXRlVGltZSI6eyJtb250aCI6Ik5PVkVNQkVSIiwieWVhciI6MjAyMCwiZGF5T2ZNb250aCI6OSwiaG91ciI6MTQsIm1pbnV0ZSI6MzEsIm1vbnRoVmFsdWUiOjExLCJuYW5vIjowLCJzZWNvbmQiOjE0LCJkYXlPZldlZWsiOiJNT05EQVkiLCJkYXlPZlllYXIiOjMxNCwiY2hyb25vbG9neSI6eyJpZCI6IklTTyIsImNhbGVuZGFyVHlwZSI6Imlzbzg2MDEifX0sInRTdHVkZW50VGVsIjoiMTIzNDU2Nzg5MTAiLCJleHAiOjE2MDQ5MjI3NjZ9.JVzALpBHeH3iucvcEssU4aypDkQNArp8E6_SGqURNYbN4SR0vBUOjUrEM0Ls9QFRNMUpu1XDuCJliND8NDsUHQ");
+        System.out.println(claims);
     }
 }

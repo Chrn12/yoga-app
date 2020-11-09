@@ -9,16 +9,17 @@ import com.woniu.utils.EmailUtil;
 import com.woniu.utils.JsonResult;
 import com.woniu.utils.JwtUtil;
 
+import com.woniu.utils.OssUtils;
+import com.woniu.yoga.domain.TStudent;
 import io.jsonwebtoken.Claims;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
 
 /**
  * <p>
@@ -83,7 +84,16 @@ public class TStudentController {
     @GetMapping("userCenter")
     public JsonResult userCenter(String token) throws Exception{
         Claims claims = JwtUtil.parseToken(token);
-        //claims.get()
+        String tStudentId = claims.get("tStudentId").toString();
+        TStudent tStudent = tStudentService.getById(Integer.parseInt(tStudentId));
+        return new JsonResult("","",null,tStudent);
+    }
+    //更改头像
+    @PutMapping("alterPhoto")
+    public JsonResult updatePhoto(String token, MultipartFile file) throws Exception{
+        Claims claims = JwtUtil.parseToken(token);
+        String tStudentImg = OssUtils.upLoad((File) file);
+
         return new JsonResult();
     }
 }

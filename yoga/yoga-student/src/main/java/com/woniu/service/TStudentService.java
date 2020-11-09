@@ -16,4 +16,5 @@ import com.woniu.yoga.domain.TStudent;
 public interface TStudentService extends IService<TStudent> {
     public TStudentDto getLogin(TStudentParam tStudentParam)throws Exception;
     public TStudentDto qqLogin(String tStudentOpenid) throws Exception;
+    public void update
 }

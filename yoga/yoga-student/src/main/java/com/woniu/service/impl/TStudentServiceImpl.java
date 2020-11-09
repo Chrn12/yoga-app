@@ -47,4 +47,14 @@ public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> i
         BeanUtils.copyProperties(student,tStudentDto);
         return tStudentDto;
     }
+
+    @Override
+    public TStudentDto qqLogin(String tStudentOpenid) throws Exception {
+        QueryWrapper<TStudent> wrapper = new QueryWrapper<>();
+        wrapper.eq("t_student_openid",tStudentOpenid);
+        TStudent student = tStudentMapper.selectOne(wrapper);
+        TStudentDto studentDto = new TStudentDto();
+        BeanUtils.copyProperties(student,studentDto);
+        return studentDto;
+    }
 }

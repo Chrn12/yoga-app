@@ -1,9 +1,11 @@
 package com.woniu.utils;
 
+import com.woniu.yoga.domain.TStudent;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
+import javax.crypto.SecretKey;
 import java.lang.reflect.Field;
 import java.security.Key;
 import java.util.Date;
@@ -15,9 +17,8 @@ public class JwtUtil {
     private static String sect = "laisdjfoiwqjflksaasfdasdfadsfwfrasdfsadffcasijfasadfasfdlkfjlasjflksajfd";
     //生成token
     public static String createToken(Object value, Integer mil) throws Exception{
-        //Key key = Keys.hmacShaKeyFor(sect.getBytes());
         Key key = Keys.hmacShaKeyFor(sect.getBytes());
-        Map<String, Object> map = new HashMap();
+        Map<String, Object> map = new HashMap<>();
         Class<?> c = value.getClass();
         Field[] fields = c.getDeclaredFields();
         if(fields != null && fields.length > 1){
@@ -33,7 +34,7 @@ public class JwtUtil {
         }
         return Jwts.builder()
                 .setClaims(map)
-                .setExpiration(new Date(System.currentTimeMillis() + mil * 60 * 1000 * 60 * 24))
+                .setExpiration(new Date(System.currentTimeMillis() + mil * 60 * 1000))
                 .signWith(key)
                 .compact();
 
@@ -42,5 +43,10 @@ public class JwtUtil {
     public static Claims parseToken(String token) throws Exception{
         Key key = Keys.hmacShaKeyFor(sect.getBytes());
         return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
+    }
+
+    public static void main(String[] args) throws Exception {
+        String token = createToken(new TStudent(), 1);
+        System.out.println(token);
     }
 }

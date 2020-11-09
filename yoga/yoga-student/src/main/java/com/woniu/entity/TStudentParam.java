@@ -35,4 +35,6 @@ public class TStudentParam {
     private String tStudentSpare;
 
     private String token;
+
+    private Boolean rememberMe;
 }

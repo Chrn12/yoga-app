@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.woniu.entity.TStudentDto;
 import com.woniu.entity.TStudentParam;
 import com.woniu.mapper.TStudentMapper;
+import com.woniu.myexception.MyException;
 import com.woniu.service.TStudentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.woniu.utils.JwtUtil;
@@ -40,7 +41,9 @@ public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> i
             wrapper.eq("t_student_password",tStudent.getTStudentPassword());
             student = tStudentMapper.selectOne(wrapper);
         }
-        String token = JwtUtil.createToken(student, 3);
+        if(student == null){
+            throw new MyException("404","账号不存在");
+        }
         TStudentDto tStudentDto = new TStudentDto();
         BeanUtils.copyProperties(student,tStudentDto);
         return tStudentDto;

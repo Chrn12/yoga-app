@@ -7,17 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="yoga-student" />
-        <module name="yoga-venue" />
-        <module name="web-utils" />
         <module name="yoga-coach" />
-        <module name="utils" />
         <module name="yoga-getway" />
-        <module name="yoga-common" />
+        <module name="aaa" />
+        <module name="yoga-student" />
+        <module name="utils" />
         <module name="service-parent" />
+        <module name="yoga-common" />
+        <module name="web-utils" />
+        <module name="yoga-venue" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="aaa" target="1.8" />
       <module name="service-parent" target="1.8" />
       <module name="utils" target="1.8" />
       <module name="web-utils" target="1.8" />

@@ -36,7 +36,7 @@ public class ExceptionHandle {
     @ExceptionHandler(MyException.class)
     public JsonResult myException(Exception e){
     	if(e instanceof MyException) {
-    		return new JsonResult("600",((MyException) e).getMess(),null,null);
+    		return new JsonResult(((MyException) e).getCode(),((MyException) e).getMess(),null,null);
     	}
         e.printStackTrace();
         return new JsonResult("500","服务器异常",null,null);

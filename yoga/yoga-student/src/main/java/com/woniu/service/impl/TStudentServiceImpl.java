@@ -25,12 +25,11 @@ import javax.annotation.Resource;
 public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> implements TStudentService {
     @Resource
     private TStudentMapper tStudentMapper;
-    @Override
     public TStudentDto getLogin(TStudentParam tStudentParam) throws Exception {
         TStudent tStudent = new TStudent();
         BeanUtils.copyProperties(tStudentParam,tStudent);
         TStudent student = null;
-        QueryWrapper<TStudent> wrapper = new QueryWrapper<>();
+        QueryWrapper<TStudent> wrapper = new QueryWrapper();
         if(tStudent.getTStudentMail() != null){
             wrapper.eq("t_student_mail",tStudent.getTStudentMail());
             wrapper.eq("t_student_password",tStudent.getTStudentPassword());

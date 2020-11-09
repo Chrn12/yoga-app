@@ -18,7 +18,7 @@ public class JwtUtil {
     //生成token
     public static String createToken(Object value, Integer mil) throws Exception{
         Key key = Keys.hmacShaKeyFor(sect.getBytes());
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap();
         Class<?> c = value.getClass();
         Field[] fields = c.getDeclaredFields();
         if(fields != null && fields.length > 1){

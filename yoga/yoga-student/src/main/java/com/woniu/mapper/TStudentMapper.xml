@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniu.mapper.TStudentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.woniu.yoga.domain.TStudent">
+        <id column="t_student_id" property="tStudentId" />
+        <result column="t_student_name" property="tStudentName" />
+        <result column="t_student_password" property="tStudentPassword" />
+        <result column="t_student_tel" property="tStudentTel" />
+        <result column="t_student_mail" property="tStudentMail" />
+        <result column="t_student_openid" property="tStudentOpenid" />
+        <result column="t_student_img" property="tStudentImg" />
+        <result column="t_student_sex" property="tStudentSex" />
+        <result column="t_student_age" property="tStudentAge" />
+        <result column="t_student_info_level" property="tStudentInfoLevel" />
+        <result column="t_student_balance" property="tStudentBalance" />
+        <result column="t_student_status" property="tStudentStatus" />
+        <result column="t_student_create_time" property="tStudentCreateTime" />
+        <result column="t_student_spare" property="tStudentSpare" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        t_student_id, t_student_name, t_student_password, t_student_tel, t_student_mail, t_student_openid, t_student_img, t_student_sex, t_student_age, t_student_info_level, t_student_balance, t_student_status, t_student_create_time, t_student_spare
+    </sql>
+
+</mapper>

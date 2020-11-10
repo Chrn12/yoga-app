@@ -190,5 +190,8 @@
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-alibaba-sentinel-datasource:2.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
     <orderEntry type="module" module-name="utils" />
+    <orderEntry type="library" name="Maven: com.woniu:yoga-common:unknown" level="project" />
+    <orderEntry type="module" module-name="yoga-common" />
+    <orderEntry type="module" module-name="web-utils" />
   </component>
 </module>

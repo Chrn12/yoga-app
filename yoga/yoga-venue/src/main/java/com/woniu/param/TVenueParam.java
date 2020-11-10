@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TVenue implements Serializable {
+public class TVenueParam implements Serializable {
 
 
 

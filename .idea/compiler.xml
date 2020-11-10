@@ -8,13 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="yoga-coach" />
-        <module name="yoga-getway" />
+        <module name="yoga-venue" />
         <module name="yoga-student" />
         <module name="utils" />
         <module name="service-parent" />
-        <module name="yoga-venue" />
-        <module name="web-utils" />
         <module name="yoga-common" />
+        <module name="web-utils" />
+        <module name="yoga-getway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

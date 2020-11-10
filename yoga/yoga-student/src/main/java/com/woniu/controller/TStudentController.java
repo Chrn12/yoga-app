@@ -95,7 +95,6 @@ public class TStudentController {
         Claims claims = JwtUtil.parseToken(token);
         String tStudentId = claims.get("tStudentId").toString();
         String tStudentImg = OssUtils.upLoad(file);
-
         return new JsonResult("","",null,tStudentImg);
     }
 }

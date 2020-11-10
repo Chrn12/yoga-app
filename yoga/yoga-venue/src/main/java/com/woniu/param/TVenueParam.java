@@ -1,4 +1,4 @@
-package com.woniu.dto;
+package com.woniu.param;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -18,9 +18,9 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TVenue implements Serializable {
+public class TVenueParam implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+
 
     @TableId(value = "t_venue_id", type = IdType.AUTO)
     private Integer tVenueId;

@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TVenue implements Serializable {
+public class TVenueDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

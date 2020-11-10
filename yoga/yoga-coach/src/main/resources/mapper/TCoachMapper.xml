@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniu.mapper.TCoachMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.woniu.yoga.domain.TCoach">
+        <id column="t_coach_id" property="tCoachId" />
+        <result column="t_coach_name" property="tCoachName" />
+        <result column="t_coach_password" property="tCoachPassword" />
+        <result column="t_coach_tel" property="tCoachTel" />
+        <result column="t_coach_mail" property="tCoachMail" />
+        <result column="t_coach_openid" property="tCoachOpenid" />
+        <result column="t_coach_img" property="tCoachImg" />
+        <result column="t_coach_sex" property="tCoachSex" />
+        <result column="t_coach_age" property="tCoachAge" />
+        <result column="t_coach_address" property="tCoachAddress" />
+        <result column="t_coach_info_level" property="tCoachInfoLevel" />
+        <result column="t_coach_balance" property="tCoachBalance" />
+        <result column="t_coach_status" property="tCoachStatus" />
+        <result column="t_coach_teach_status" property="tCoachTeachStatus" />
+        <result column="t_coach_create_time" property="tCoachCreateTime" />
+        <result column="t_coach_spare" property="tCoachSpare" />
+        <result column="t_coach_sect" property="tCoachSect" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        t_coach_id, t_coach_name, t_coach_password, t_coach_tel, t_coach_mail, t_coach_openid, t_coach_img, t_coach_sex, t_coach_age, t_coach_address, t_coach_info_level, t_coach_balance, t_coach_status, t_coach_teach_status, t_coach_create_time, t_coach_spare, t_coach_sect
+    </sql>
+
+</mapper>

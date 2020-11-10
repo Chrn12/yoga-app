@@ -34,7 +34,7 @@ public class JwtUtil {
         }
         return Jwts.builder()
                 .setClaims(map)
-                .setExpiration(new Date(System.currentTimeMillis() + mil * 60 * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + mil * 60 * 1000 * 60 * 24))
                 .signWith(key)
                 .compact();
 

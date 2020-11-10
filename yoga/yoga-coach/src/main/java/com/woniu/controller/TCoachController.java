@@ -6,9 +6,11 @@ import com.woniu.entity.TCoachDto;
 import com.woniu.entity.TCoachParam;
 import com.woniu.myexception.MyException;
 import com.woniu.service.TCoachService;
+import com.woniu.utils.EmailUtil;
 import com.woniu.utils.JsonResult;
 import com.woniu.utils.JwtUtil;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -34,7 +37,8 @@ import java.util.Map;
 public class TCoachController {
     @Resource(name = "coachService")
     private TCoachService tCoachService;
-
+    @Resource
+    private RedisTemplate<Object,Object> template;
     //登录接口
     @GetMapping("login")
     public JsonResult login(TCoachParam param)throws Exception {
@@ -55,11 +59,33 @@ public class TCoachController {
         return new JsonResult("200","success",null,map);
     }
 
+    //发送注册验证码
+    @GetMapping("code")
+    public JsonResult getCode(String mail)throws Exception{
+        String code = EmailUtil.sendCode(mail);
+        //存入redis
+        template.opsForValue().set(mail,code,30, TimeUnit.SECONDS);
+        return new JsonResult("200","success",null,code);
+    }
+    //验证码校验
+    @GetMapping("check")
+    public JsonResult checkCode(String UserCode,String mail)throws Exception{
+        String code = (String) template.opsForValue().get(mail);
+        if(code==null||"".equals(code)){
+            throw new MyException("308","验证码已过期");
+        }
+        if(!code.equals(UserCode)){
+            throw new MyException("309","验证码错误");
+        }
+        return new JsonResult("200","success",null,null);
+    }
+
     //注册
-    @PostMapping("Register")
+    @PostMapping("register")
     public JsonResult register(TCoachParam param)throws Exception{
         TCoachDto dto = new TCoachDto();
         BeanUtils.copyProperties(param,dto);
+        tCoachService.register(dto);
         return new JsonResult("200","success",null,null);
     }
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.woniu.param.TVenueParam;
 import com.woniu.service.TVenueService;
 import com.woniu.utils.JsonResult;
+import com.woniu.utils.JwtUtil;
 import com.woniu.yoga.domain.TVenue;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +29,25 @@ public class TVenueController {
     @Autowired
     private TVenueService tVenueService;
 
-    @GetMapping("/login")
+
+    @RequestMapping("/login")
     public JsonResult venueLogin(TVenueParam tVenueParam) throws Exception{
+        //转换类型
         TVenue tVenue = new TVenue();
         BeanUtils.copyProperties(tVenueParam,tVenue);
         if(tVenueParam != null){
-            TVenue one = tVenueService.getOne(new QueryWrapper<TVenue>().eq("t_venue_tel", tVenue.getTVenueTel()).or()
-                    .eq("t_venue_mail", tVenue.getTVenueMail()));
-            if(one != null && one.equals(tVenue.getTVenuePassword())){
-                return new JsonResult("200","success",null,null);
+            //判断是否有电话或邮箱与传入对象相同的数据库实体
+            TVenue one = tVenueService.getOne(new QueryWrapper<TVenue>().eq("t_venue_tel", tVenue.getTVenueTel())
+                    .or().eq("t_venue_mail", tVenue.getTVenueMail()));
+            //如果有切密码相同 判断用户是否选择3天免登录服务
+            if(one != null && one.getTVenuePassword().equals(tVenue.getTVenuePassword()) ){
+                if(tVenue.getTVenueStatus() == 3){
+                    String token = JwtUtil.createToken(one, 3);
+                    one.setTVenueSpare(token);
+                    return new JsonResult("200","success",null,one);
+                }else{
+                    return new JsonResult("200","success",null,one);
+                }
             }else {
                 return new JsonResult("250","账户名或密码错误",null,null);
             }
@@ -46,6 +57,8 @@ public class TVenueController {
     }
 
 
+    public void venueRegister () throws Exception{
 
+    }
 }
 

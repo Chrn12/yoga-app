@@ -17,4 +17,6 @@ public interface TStudentService extends IService<TStudent> {
     public TStudentDto getLogin(TStudentParam tStudentParam)throws Exception;
     public TStudentDto qqLogin(String tStudentOpenid) throws Exception;
     public void updatePhoto(String tStudentId,String tStudentImg)throws Exception;
+    public void savaStudent(TStudentDto tStudentDto) throws Exception;
+    public void updatePassword(TStudentDto tStudentDto) throws Exception;
 }

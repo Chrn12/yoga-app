@@ -73,4 +73,31 @@ public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> i
             throw new MyException("500","修改失败");
         }
     }
+
+    @Override
+    public void savaStudent(TStudentDto tStudentDto) throws Exception {
+        QueryWrapper<TStudent> wrapper = new QueryWrapper<>();
+        wrapper.eq("t_student_mail",tStudentDto.getTStudentMail());
+        TStudent student = tStudentMapper.selectOne(wrapper);
+        if(student != null){
+            throw new MyException("300","该邮箱已被注册");
+        }
+        QueryWrapper<TStudent> wrapper1 = new QueryWrapper<>();
+        wrapper1.eq("t_student_tel",tStudentDto.getTStudentTel());
+        TStudent student1 = tStudentMapper.selectOne(wrapper1);
+        if(student1 != null){
+            throw new MyException("300","电话号码已被注册");
+        }
+        TStudent student2 = new TStudent();
+        BeanUtils.copyProperties(tStudentDto,student2);
+        tStudentMapper.insert(student2);
+    }
+
+    @Override
+    public void updatePassword(TStudentDto tStudentDto) throws Exception {
+        UpdateWrapper<TStudent> wrapper = new UpdateWrapper<>();
+        wrapper.eq("t_student_mail",tStudentDto.getTStudentMail());
+        wrapper.set("t_student_password",tStudentDto.getTStudentPassword());
+        tStudentMapper.update(new TStudent(),wrapper);
+    }
 }

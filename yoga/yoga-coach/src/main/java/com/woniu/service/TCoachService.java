@@ -18,4 +18,6 @@ public interface TCoachService extends IService<TCoach> {
     public TCoachDto login(TCoachDto dto) throws Exception;
 
     public Map qqLogin(String code)throws Exception;
+
+    public void register(TCoachDto dto)throws Exception;
 }

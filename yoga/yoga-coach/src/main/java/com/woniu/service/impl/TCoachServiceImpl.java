@@ -86,4 +86,28 @@ public class TCoachServiceImpl extends ServiceImpl<TCoachMapper,TCoach> implemen
         map.put("coach",null);
         return map;
     }
+
+    @Override
+    public void register(TCoachDto dto) throws Exception {
+        //判断用户名是否存在
+        QueryWrapper<TCoach> wrapper = new QueryWrapper<>();
+        wrapper.eq("t_coach_mail",dto.getTCoachMail());
+        TCoach coach = this.getOne(wrapper);
+        if(coach!=null){
+            throw new MyException("305","该邮箱已被注册");
+        }
+        wrapper.clear();
+        wrapper.eq("t_coach_tel",dto.getTCoachTel());
+        coach = this.getOne(wrapper);
+        if(coach!=null){
+            throw new MyException("306","该电话已被注册");
+        }
+        //数据存入数据库
+        TCoach tCoach = new TCoach();
+        BeanUtils.copyProperties(dto,tCoach);
+        int result = mapper.insert(tCoach);
+        if(result==0){
+            throw new MyException("500","服务器异常");
+        }
+    }
 }

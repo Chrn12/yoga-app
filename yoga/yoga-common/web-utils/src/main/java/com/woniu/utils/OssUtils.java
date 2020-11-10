@@ -3,13 +3,16 @@ package com.woniu.utils;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.PutObjectRequest;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.UUID;
 
 public class OssUtils {
     //上传 返回url
-    public static String upLoad(File file){
+    public static String upLoad(MultipartFile file) throws IOException {
         UUID uuid = UUID.randomUUID();
         // Endpoint以杭州为例，其它Region请按实际情况填写。
         String endpoint = "oss-cn-chengdu.aliyuncs.com";
@@ -22,7 +25,7 @@ public class OssUtils {
         String bucketName = "woniutest";
         String key = uuid+".jpg";
         // 创建PutObjectRequest对象。
-        PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, file);
+        PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, new ByteArrayInputStream(file.getBytes()));
         // 上传文件。
         ossClient.putObject(putObjectRequest);
         String url = bucketName + "." + endpoint + "/"+key;

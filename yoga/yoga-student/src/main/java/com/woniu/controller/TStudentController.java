@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 
 /**
@@ -92,9 +93,10 @@ public class TStudentController {
     @PutMapping("alterPhoto")
     public JsonResult updatePhoto(String token, MultipartFile file) throws Exception{
         Claims claims = JwtUtil.parseToken(token);
-        String tStudentImg = OssUtils.upLoad((File) file);
+        String tStudentId = claims.get("tStudentId").toString();
+        String tStudentImg = OssUtils.upLoad(file);
 
-        return new JsonResult();
+        return new JsonResult("","",null,tStudentImg);
     }
 }
 

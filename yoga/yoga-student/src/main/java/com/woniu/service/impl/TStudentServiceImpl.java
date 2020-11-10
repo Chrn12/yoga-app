@@ -1,6 +1,7 @@
 package com.woniu.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.woniu.entity.TStudentDto;
 import com.woniu.entity.TStudentParam;
 import com.woniu.mapper.TStudentMapper;
@@ -12,6 +13,8 @@ import com.woniu.utils.JwtUtil;
 import com.woniu.yoga.domain.TStudent;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -24,6 +27,7 @@ import javax.annotation.Resource;
  * @since 2020-11-09
  */
 @Service
+@Transactional(propagation = Propagation.REQUIRED)
 public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> implements TStudentService {
     @Resource
     private TStudentMapper tStudentMapper;
@@ -57,5 +61,16 @@ public class TStudentServiceImpl extends ServiceImpl<TStudentMapper, TStudent> i
         TStudentDto studentDto = new TStudentDto();
         BeanUtils.copyProperties(student,studentDto);
         return studentDto;
+    }
+
+    @Override
+    public void updatePhoto(String tStudentId, String tStudentImg) throws Exception {
+        UpdateWrapper<TStudent> wrapper = new UpdateWrapper<>();
+        wrapper.eq("t_student_id", tStudentId);
+        wrapper.set("t_student_img",tStudentImg);
+        int update = tStudentMapper.update(new TStudent(), wrapper);
+        if(update < 1){
+            throw new MyException("500","修改失败");
+        }
     }
 }

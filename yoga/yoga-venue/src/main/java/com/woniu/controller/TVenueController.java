@@ -151,7 +151,7 @@ public class TVenueController {
     }
     //更改图片
     @PutMapping("/updateimg")
-    public JsonResult completeInfo(TVenueParam tVenueParam) throws Exception {
+    public JsonResult updateImg(TVenueParam tVenueParam) throws Exception {
 //        TVenue tVenue = new TVenue();
 //        BeanUtils.copyProperties(tVenueParam,tVenue);
         String token = tVenueParam.getTVenueSpare();
@@ -162,6 +162,57 @@ public class TVenueController {
         tVenueService.updateById(byId);
         return new JsonResult("200","success",null,null);
     }
+    //完善信息
+    @PostMapping("/completeInfo")
+    public JsonResult completeInfo (TVenueParam tVenueParam) throws Exception{
+        String token = tVenueParam.getTVenueSpare();
+        Claims claims = JwtUtil.parseToken(token);
+        int tVenueId = (int)claims.get("TVenueId");
+        TVenue byId = tVenueService.getById(tVenueId);
+        byId.setTVenueAddress(tVenueParam.getTVenueAddress());
+        byId.setTVenueName(tVenueParam.getTVenueName());
+        if(tVenueParam.getTVenueDescribe() != null && !"".equals(tVenueParam.getTVenueDescribe())){
+            byId.setTVenueDescribe(tVenueParam.getTVenueDescribe());
+        }
+        tVenueService.updateById(byId);
+        return new JsonResult("200","success",null,null);
+    }
+
+    //修改信息（前端需判断手机号是否重复）
+    @PostMapping("/updateinfo")
+    public JsonResult updateInfo (TVenueParam tVenueParam) throws Exception{
+        String token = tVenueParam.getTVenueSpare();
+        Claims claims = JwtUtil.parseToken(token);
+        int tVenueId = (int)claims.get("TVenueId");
+        TVenue byId = tVenueService.getById(tVenueId);
+        byId.setTVenueAddress(tVenueParam.getTVenueAddress());
+        byId.setTVenueName(tVenueParam.getTVenueName());
+        byId.setTVenueTel(tVenueParam.getTVenueTel());
+        if(tVenueParam.getTVenueDescribe() != null && !"".equals(tVenueParam.getTVenueDescribe())){
+            byId.setTVenueDescribe(tVenueParam.getTVenueDescribe());
+        }
+        tVenueService.updateById(byId);
+        return new JsonResult("200","success",null,null);
+    }
+
+    //查询场馆信息
+    @GetMapping("/selectvenue")
+    public JsonResult selectVenue (TVenueParam tVenueParam) throws Exception{
+        String token = tVenueParam.getTVenueSpare();
+        Claims claims = JwtUtil.parseToken(token);
+        int tVenueId = (int)claims.get("TVenueId");
+        TVenue byId = tVenueService.getById(tVenueId);
+        return new JsonResult("250","success",null,byId);
+    }
+
+
+
+
+
+
+
+
+
 
 
 

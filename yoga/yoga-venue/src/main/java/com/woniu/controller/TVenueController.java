@@ -4,16 +4,21 @@ package com.woniu.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.woniu.param.TVenueParam;
 import com.woniu.service.TVenueService;
+import com.woniu.utils.EmailUtil;
 import com.woniu.utils.JsonResult;
 import com.woniu.utils.JwtUtil;
 import com.woniu.yoga.domain.TVenue;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.cache.CacheProperties;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -55,9 +60,19 @@ public class TVenueController {
             return new JsonResult("250","未找到该账户，请先注册",null,null);
         }
     }
+    @Autowired
+    RedisTemplate redisTemplate;
+    //发送验证码
+    @RequestMapping("/sendcode")
+    public JsonResult venueRegister (String eMail) throws Exception{
+        String code = EmailUtil.sendCode(eMail);
+        redisTemplate.opsForValue().set(eMail,code,3, TimeUnit.SECONDS);
+        return new JsonResult("250","验证码发送成功",null,null);
+    }
 
-
-    public void venueRegister () throws Exception{
+    @RequestMapping("/register")
+    public void venueRegister (TVenueParam tVenueParam) throws Exception{
+        redisTemplate.opsForValue().get(tVenueParam.getTVenueMail());
 
     }
 }

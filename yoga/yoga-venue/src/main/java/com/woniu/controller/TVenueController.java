@@ -10,6 +10,7 @@ import com.woniu.utils.JsonResult;
 import com.woniu.utils.JwtUtil;
 import com.woniu.utils.OssUtils;
 import com.woniu.yoga.domain.TVenue;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
@@ -70,7 +71,7 @@ public class TVenueController {
         redisTemplate.opsForValue().set(eMail,code,3, TimeUnit.MINUTES);
         return new JsonResult("250","验证码发送成功",null,null);
     }
-
+    //验证
     @RequestMapping("/verify")
     public JsonResult venueRegister (String eMail,String code) throws Exception{
         if(code == null && code.equals("")){
@@ -130,7 +131,7 @@ public class TVenueController {
         return new JsonResult("200","修改成功",null,null);
     }
 
-    //修改密码钱检查旧密码是否匹配
+    //修改密码前检查旧密码是否匹配
     @GetMapping("/eqoldpass")
     public JsonResult checkOldPassword (TVenueParam tVenueParam) throws Exception{
         TVenue tVenue = new TVenue();
@@ -143,11 +144,27 @@ public class TVenueController {
         return new JsonResult("250","原密码错误",null,null);
     }
     //上传图片
-    @PutMapping("/uploadpic")
-    public JsonResult completeInfo (MultipartFile file) throws Exception{
+    @RequestMapping("/uploadpic")
+    public JsonResult uploadPic(MultipartFile file) throws Exception{
         String url = OssUtils.upLoad(file);
         return new JsonResult("200","success",null,url);
     }
+    //更改图片
+    @PutMapping("/updateimg")
+    public JsonResult completeInfo(TVenueParam tVenueParam) throws Exception {
+//        TVenue tVenue = new TVenue();
+//        BeanUtils.copyProperties(tVenueParam,tVenue);
+        String token = tVenueParam.getTVenueSpare();
+        Claims claims = JwtUtil.parseToken(token);
+        int tVenueId = (int)claims.get("TVenueId");
+        TVenue byId = tVenueService.getById(tVenueId);
+        byId.setTVenueImg(tVenueParam.getTVenueImg());
+        tVenueService.updateById(byId);
+        return new JsonResult("200","success",null,null);
+    }
+
+
+
 
 
 }

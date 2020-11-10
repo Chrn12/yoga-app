@@ -55,5 +55,7 @@ public class TCoachParam implements Serializable {
 
     private String tCoachSect;
 
+    private String token;
+
 
 }

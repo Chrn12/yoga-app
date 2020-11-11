@@ -10,6 +10,9 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/yoga/aaa/pom.xml" />
+        <option value="$PROJECT_DIR$/yoga/yoga-venue/venue-client/pom.xml" />
+        <option value="$PROJECT_DIR$/yoga/yoga-venue/venue-model/pom.xml" />
+        <option value="$PROJECT_DIR$/yoga/yoga-venue/venue-web/pom.xml" />
       </set>
     </option>
   </component>
